@@ -1,0 +1,9 @@
+/* Schibsted Grotesk carries the whole system (free, open-source). */
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap');
+
+/* Objective — the open-source (SIL OFL) twin of Objektiv, used for the wordmark. */
+@font-face { font-family: 'Objective'; font-weight: 300; font-style: normal; font-display: swap; src: url('../assets/fonts/Objective-Light.woff2') format('woff2'); }
+@font-face { font-family: 'Objective'; font-weight: 400; font-style: normal; font-display: swap; src: url('../assets/fonts/Objective-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'Objective'; font-weight: 500; font-style: normal; font-display: swap; src: url('../assets/fonts/Objective-Medium.woff2') format('woff2'); }
+@font-face { font-family: 'Objective'; font-weight: 700; font-style: normal; font-display: swap; src: url('../assets/fonts/Objective-Bold.woff2') format('woff2'); }
+@font-face { font-family: 'Objective'; font-weight: 800; font-style: normal; font-display: swap; src: url('../assets/fonts/Objective-ExtraBold.woff2') format('woff2'); }

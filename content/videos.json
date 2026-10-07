@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "title": "Video title 01",
+      "category": "CORPORATE",
+      "video_url": "",
+      "poster": ""
+    },
+    {
+      "title": "Video title 02",
+      "category": "NON PROFIT",
+      "video_url": "",
+      "poster": ""
+    },
+    {
+      "title": "Video title 03",
+      "category": "CORPORATE",
+      "video_url": "",
+      "poster": ""
+    },
+    {
+      "title": "Video title 04",
+      "category": "NON PROFIT",
+      "video_url": "",
+      "poster": ""
+    },
+    {
+      "title": "Video title 05",
+      "category": "CORPORATE",
+      "video_url": "",
+      "poster": ""
+    },
+    {
+      "title": "Video title 06",
+      "category": "NON PROFIT",
+      "video_url": "",
+      "poster": ""
+    },
+    {
+      "title": "Video title 07",
+      "category": "CORPORATE",
+      "video_url": "",
+      "poster": ""
+    },
+    {
+      "title": "Video title 08",
+      "category": "NON PROFIT",
+      "video_url": "",
+      "poster": ""
+    },
+    {
+      "title": "Video title 09",
+      "category": "CORPORATE",
+      "video_url": "",
+      "poster": ""
+    }
+  ]
+}

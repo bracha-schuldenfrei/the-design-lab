@@ -1,0 +1,484 @@
+{
+  "items": [
+    {
+      "title": "Candlewood Mikvah Square",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_bd819dbdb82b44ba8656ffe8ed2b1d3d~mv2.gif/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Candlewood Mikvah 2",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_3b5baa02a3864543846fdfb049beb11a~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Baila square",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_45e42137d3314645af9c1893f336e4e6~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Baila 2",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_71c6963f817c4420b65dd8bf9973daac~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "candlewood mikvah 2",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_c3e5c9c3760845899ccae222a8dd9766~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "candlewood mikvah 1",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_9679c982ee644f2488cd6c2d22fed446~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Machon Matnas Chaim Mussar",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_bfa956b046c943f2b38d7e343007841b~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Daf Hashavuah",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_e9b43c8c771d41d8822180941f519475~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Sefer Torah Ad",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_78d0cc07cea543a4931b991fedd738e2~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Free Gemara",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_feab018f4e0a43a1bbfedd9393bdae3c~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "CHulin COw ad",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_5f1d936b50bf45ba8afe8ebc3b1d401a~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Yitzy Handler Square",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_f759e6017ae54e5ba92390d7ca8dc662~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Yitzy Handler 2",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_7c97e267978e47f3a8bd2acd8261f0e4~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Belsky 2025 square",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_d2655d9342d545b4b97519ebee5758bf~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Belsky 2025 2",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_046c27e6876c4db9a54ec3b74b0dfd97~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "kollel Serench Square",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_c03923208b584fceb333cbb1bf7d8af9~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "kollel Serench 2",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_b7b23489ea8440c3a32eb49755e294cd~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Shabbos of Achdus Square",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_bd68997b80414688a82cc00514a41a2a~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Shabbos of Achdus 2",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_6b67714c7203497faa7edad751b00da4~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Dirshu Square",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_9fa6065ab21541a79227cd7a85af7b42~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Dirshu 2",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_d755114a9d8448fa8c8743cf7f14df86~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Tashman phones 1",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_cdeb7b8b27a640e1b9d9a2ff3f473d7a~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Tashman phones 2",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_82a9d23bdcf545d9a2a55a069de7fc78~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Torah in 2 Square",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_29a86151224546269101a7f313a9beef~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Torah in 2 2",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_16a1d58382cd47c0be0ab1e23633671a~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Belsky 2024 square",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_f9a391449de04b8c8efb7171ed7db683~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Belsky 2024 2",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_ddedf240a6e446d7be1c4a2d26e6cfa7~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Ginian Square",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_6174f091479248a380572aed62e99455~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "MDY COOKBOOK",
+      "category": "BROCHURES",
+      "image": "https://static.wixstatic.com/media/1dd142_c43430c3d7b04bdcb26292138b04f3fc~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Dirshu Chabura Brochure",
+      "category": "BROCHURES",
+      "image": "https://static.wixstatic.com/media/1dd142_2e2b2682afb9450d9e5c08d38c6407c3~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Chazak Trifold",
+      "category": "BROCHURES",
+      "image": "https://static.wixstatic.com/media/1dd142_81cfadbb6294472e96b48e263e97a74b~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Camp Baraisa Family Program",
+      "category": "BROCHURES",
+      "image": "https://static.wixstatic.com/media/1dd142_a3272cf0ac89450080b82bee993999e6~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Learning Program",
+      "category": "BROCHURES",
+      "image": "https://static.wixstatic.com/media/1dd142_77baf1ecaa6f4919a3b481ff1c4304aa~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Machrikei Erez",
+      "category": "BROCHURES",
+      "image": "https://static.wixstatic.com/media/1dd142_0bf3300713684547b1bcc78f078739ef~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Ginian 2",
+      "category": "CAMPAIGNS",
+      "image": "https://static.wixstatic.com/media/1dd142_32a9b7146e2d465ead5fdf48b9f5c5bb~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Bencher",
+      "category": "BROCHURES",
+      "image": "https://static.wixstatic.com/media/1dd142_b297b6aebc6f428991a8077bd9b614f2~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Accurate ABA",
+      "category": "BROCHURES",
+      "image": "https://static.wixstatic.com/media/1dd142_80e5a9e1e736424485136235e0583135~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "AMZ accountant",
+      "category": "BROCHURES",
+      "image": "https://static.wixstatic.com/media/1dd142_30e880799754410e9ea47883129fcf48~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Advance ABA",
+      "category": "BROCHURES",
+      "image": "https://static.wixstatic.com/media/1dd142_3219bd62e67849508bff4d425ab5ae15~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Asra Kadisha",
+      "category": "BROCHURES",
+      "image": "https://static.wixstatic.com/media/1dd142_878d4959ff474e4dbb8d10ae7dafc360~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Dirshu Logo",
+      "category": "LOGOS",
+      "image": "https://static.wixstatic.com/media/1dd142_d17377ea79c1448fbfd59d46fe2d7e9b~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Dirshu Campaign",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_b72afa64728d4f62b1d32ceb47647f7f~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Roller Shade Co",
+      "category": "LOGOS",
+      "image": "https://static.wixstatic.com/media/1dd142_082198ed09dc4264b0892df982c47326~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Advanced ABA Therapy",
+      "category": "LOGOS",
+      "image": "https://static.wixstatic.com/media/1dd142_b4384072bc7c44ccb9045262fa30def3~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "g studios",
+      "category": "LOGOS",
+      "image": "https://static.wixstatic.com/media/1dd142_a4bafe5b189a44a4ae9be8d4842fd05d~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "master speech",
+      "category": "LOGOS",
+      "image": "https://static.wixstatic.com/media/1dd142_0488eaf41e44459a9549d773443a082b~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "nothing but the daf",
+      "category": "LOGOS",
+      "image": "https://static.wixstatic.com/media/1dd142_b82b4523f9f84fa4b3089155595daa2f~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "plastitch",
+      "category": "LOGOS",
+      "image": "https://static.wixstatic.com/media/1dd142_dbe3854e360b49579a608abf6c6d2d66~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "baal tefillah project",
+      "category": "LOGOS",
+      "image": "https://static.wixstatic.com/media/1dd142_6785b9c0b8344bf1aa6613db6170d362~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "beis hatalmud dlawrence",
+      "category": "LOGOS",
+      "image": "https://static.wixstatic.com/media/1dd142_7ad2767c09c24f36abad34a11d9e919b~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Miriam Fine Art",
+      "category": "LOGOS",
+      "image": "https://static.wixstatic.com/media/1dd142_141bd6c1ad664cdeb8042f4498203de2~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "bais medrash greengate",
+      "category": "LOGOS",
+      "image": "https://static.wixstatic.com/media/1dd142_df415d8b5b6c49bdbd28b4399e03832a~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "kibbuts mechina",
+      "category": "LOGOS",
+      "image": "https://static.wixstatic.com/media/1dd142_3a75fd2fc6014ab8b476f916be280bdd~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "amz flippers",
+      "category": "LOGOS",
+      "image": "https://static.wixstatic.com/media/1dd142_4ee2ea4ae0d74a6dac91ffbfd64f646d~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "thursday night mishmar",
+      "category": "LOGOS",
+      "image": "https://static.wixstatic.com/media/1dd142_32b63372489044eaa32499ab9fc48094~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "MBM",
+      "category": "LOGOS",
+      "image": "https://static.wixstatic.com/media/1dd142_3fbdd864411c49e585d8c4e4778582bd~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "BBQ Kanfei",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_c4dbd65b66994cbeb63962a414756bce~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "8.5x11 G Studios Ad-03",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_e1a6ae6dfc9d4724b713488ea63f5ebd~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "cHALLAH BOWL",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_c871630d8eaf40daa6cd2ac238a69a18~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "CHAZAK 2024 FLYER",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_5ff20e0366b9411d9f0f857260125d2c~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "CUCINE PESACH",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_b7386ad8cbcb4c57acd9e5aa539ca3a2~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "EIMASA D'TZIBURA",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_639712a7123e48868d8d3b6fa1fb5410~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Global Chesed Experience-02",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_34ca0e925b624e77a7ac1eafa8fa888c~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "CHAZAK FLYER",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_6482d07e07a14fc7a7d6667311b24166~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "HNADYMAN FLYER",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_95baf81a2b2e4fe5b657b4ef0ea85ead~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "HOME FURNISHINGS",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_c7722bb74ffb4826b788458e7908356a~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "HOT SAUCE",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_8baddeadb80b4da8a5c8fd35f44b664d~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "MALKY LICHTENSTEIN",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_c78a16958fd04cb9b1145efa71b72489~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "MBM 2025",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_d1f16e7a2ff848e0b7bc0e1088f6ae53~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "MDY SAHBBTON FLYER",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_16edb130a436485788d8e0e3bef9c33d~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "MIRIAM PASCAL",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_953d1d3fe9154c37ba7086553b17f3a0~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "PARENT PARTNER",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_183ad1107f6e45cf955f8cde28eced39~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "PRI CHAIM",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_29c3e179dd2e4c669a5a8d552aea925c~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "ROLLER SHADE FLYER",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_80522ae018d3440b8748a89a8fe7775b~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "YITZY HANDLER",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_87754454312c4fec940b2f0bb291b4e7~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "THE CHIDA AD",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_5830583e2fe74751811acf88fd8a98ba~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "TEETH WHITENING",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_a19fb63edae444ed838c814fd82dda7d~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "Aura and Belle",
+      "category": "BROCHURES",
+      "image": "https://static.wixstatic.com/media/1dd142_dba7915986d94177bd1af666b7547c43~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "SPERO FLYER",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_b7e84d88cc814a6b9b4304d07dba1d0d~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    },
+    {
+      "title": "SLOVIE HUNGARY",
+      "category": "ADS",
+      "image": "https://static.wixstatic.com/media/1dd142_9f62b765a60448d4accf3450eabe86f7~mv2.png/v1/fill/w_900,h_900,al_c,q_85/file.png",
+      "show_in_hero": true
+    }
+  ]
+}

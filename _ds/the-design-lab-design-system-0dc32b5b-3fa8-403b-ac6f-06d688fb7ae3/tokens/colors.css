@@ -1,0 +1,45 @@
+:root {
+  /* Core ink & paper */
+  --tdl-ink: #111111;
+  --tdl-white: #ffffff;
+  --tdl-fog: #f4f4f2;
+
+  /* Neutrals */
+  --tdl-text: #3a3a38;
+  --tdl-muted: #6f6f6b;
+  --tdl-border: #e6e6e2;
+  --tdl-border-strong: #e4e4e0;
+  --tdl-hairline: #eeeeea;
+  --tdl-panel: #fafafa;
+  --tdl-zebra: #f7f7f5;
+  --tdl-dark-surface: #181818;
+
+  /* The three drops */
+  --tdl-coral: #ed5759;   /* primary pop */
+  --tdl-teal: #2aaeb5;    /* secondary pop */
+  --tdl-yellow: #f5ac22;  /* trio only */
+  --tdl-amber-ink: #a8770f; /* darkened yellow, for text on light */
+
+  /* Tints (backgrounds for pills / soft fills) */
+  --tdl-coral-tint: rgba(237,87,89,0.10);
+  --tdl-teal-tint: rgba(42,174,181,0.12);
+  --tdl-yellow-tint: rgba(245,172,34,0.16);
+
+  /* ---- Semantic aliases ---- */
+  --color-bg: var(--tdl-white);
+  --color-surface: var(--tdl-fog);
+  --color-surface-panel: var(--tdl-panel);
+  --color-surface-dark: var(--tdl-ink);
+  --color-text-strong: var(--tdl-ink);
+  --color-text: var(--tdl-text);
+  --color-text-muted: var(--tdl-muted);
+  --color-border: var(--tdl-border);
+  --color-on-dark: var(--tdl-white);
+
+  --color-primary: var(--tdl-coral);
+  --color-primary-contrast: var(--tdl-white);
+  --color-secondary: var(--tdl-teal);
+  --color-accent: var(--tdl-yellow);
+
+  --color-focus-ring: rgba(237,87,89,0.35);
+}

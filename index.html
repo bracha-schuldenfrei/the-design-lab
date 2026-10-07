@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/the-design-lab-design-system-0dc32b5b-3fa8-403b-ac6f-06d688fb7ae3/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/the-design-lab-design-system-0dc32b5b-3fa8-403b-ac6f-06d688fb7ae3/tokens/colors.css">
+<link rel="stylesheet" href="_ds/the-design-lab-design-system-0dc32b5b-3fa8-403b-ac6f-06d688fb7ae3/tokens/typography.css">
+<link rel="stylesheet" href="_ds/the-design-lab-design-system-0dc32b5b-3fa8-403b-ac6f-06d688fb7ae3/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/the-design-lab-design-system-0dc32b5b-3fa8-403b-ac6f-06d688fb7ae3/styles.css">
+<script src="_ds/the-design-lab-design-system-0dc32b5b-3fa8-403b-ac6f-06d688fb7ae3/_ds_bundle.js"></script>
+<script src="graphics-data.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #000; }
+  body { font-family: var(--font-sans); color: var(--tdl-text); -webkit-font-smoothing: antialiased; }
+  a { color: var(--tdl-coral); text-decoration: none; }
+  a:hover { color: #d8474a; }
+  ::selection { background: rgba(237,87,89,0.22); }
+
+  [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity .55s var(--ease-out), transform .55s var(--ease-out); }
+  [data-reveal].in { opacity: 1; transform: none; }
+
+  .nav-link { position: relative; color: #fff; transition: opacity .2s var(--ease-out), color .2s var(--ease-out); }
+  .nav-group .nav-link:hover { color: var(--tdl-coral); }
+  .nav-link.active { color: var(--tdl-coral); opacity: 1; }
+
+  .foot-link { color: rgba(255,255,255,0.78); transition: color .2s var(--ease-out); }
+  .foot-link:hover { color: var(--tdl-coral); }
+  .foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px; align-items: start; }
+  @media (max-width: 640px) { .foot-cols { grid-template-columns: auto auto; justify-content: start; gap: 32px 56px; } .foot-cols > :first-child { grid-column: 1 / -1; } }
+  .gfx-break { display: none; }
+  @media (max-width: 600px) { .gfx-break { display: block; flex-basis: 100%; height: 10px; } .gfx-filters { row-gap: 0 !important; } }
+  .hero-sizer { display: block; visibility: hidden; white-space: nowrap; }
+  .hero-br { display: inline; }
+  @media (max-width: 600px) {
+    .hero-sec { min-height: 100vh !important; }
+    .hero-h1 { font-size: clamp(34px,11vw,46px) !important; }
+    .hero-row { flex-direction: column !important; align-items: center !important; gap: 0.06em !important; }
+    .hero-slot { margin-bottom: 0.22em; }
+    .hero-br { display: block; }
+    .hero-h1 .hero-br { margin-bottom: 0.12em; }
+  }
+
+  .crosshead { transition: color .5s var(--ease-out); }
+
+  .hl-line { display: block; background: linear-gradient(90deg, var(--tdl-coral) 0 50%, #fff 50% 100%); background-size: 200% 100%; background-position: calc((1 - var(--fill, 0)) * 100%) 0; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+
+  .promise { position: relative; border-radius: 20px; overflow: hidden; background: #fff; border: 2px solid var(--tdl-border); opacity: 0; transform: translateY(20px); transition: opacity .5s var(--ease-out), transform .5s var(--ease-out); }
+  .promise.in { opacity: 1; transform: none; }
+  .promise-back { position: absolute; inset: 0; z-index: 1; display: flex; align-items: center; justify-content: center; text-align: center; padding: 30px; }
+  .promise-front { position: absolute; inset: 0; z-index: 2; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 28px; transition: transform .55s cubic-bezier(0.76,0,0.24,1); will-change: transform; }
+  .promise:hover .promise-front, .promise.open .promise-front { transform: translateY(-100%); }
+  .promise-arrow { margin-top: 16px; animation: promiseBob 1.6s var(--ease-out) infinite; }
+  .promise:hover .promise-arrow, .promise.open .promise-arrow { opacity: 0; }
+  @keyframes promiseBob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+  @keyframes tdl-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marquee-wrap { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .marquee-track { display: flex; gap: 72px; width: max-content; animation: tdl-marquee 34s linear infinite; align-items: center; }
+  .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+
+  .gfx-tile img { transition: transform .5s var(--ease-out); }
+  .gfx-tile:hover img { transform: scale(1.06); }
+
+  .video-frame .video-inner { transition: transform .5s var(--ease-out); }
+  .video-card:hover .video-frame .video-inner { transform: scale(1.05); }
+  .video-overlay { opacity: 0; transition: opacity .3s var(--ease-out); }
+  .video-card:hover .video-overlay { opacity: 1; }
+  .lift { transition: transform .3s var(--ease-out), border-color .3s var(--ease-out); }
+  .lift:hover { transform: translateY(-6px); border-color: var(--tdl-coral) !important; }
+
+  /* Hero background grid */
+  .hero-grid { position: absolute; inset: 0; display: grid; }
+  .hero-cell { overflow: hidden; }
+  .hero-cell img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: .08; transition: opacity .35s ease-out; }
+  /* Rotating hero word */
+  @keyframes tdl-word { 0% { opacity: 0; transform: translateY(0.3em); } 100% { opacity: 1; transform: none; } }
+
+  /* LAB scroll-colored letters */
+  .lab-letter { color: #111; transition: color .7s var(--ease-out) .12s; }
+  [data-reveal].in .lab-letter.labL { color: var(--tdl-teal); }
+  [data-reveal].in .lab-letter.labA { color: var(--tdl-yellow); }
+  [data-reveal].in .lab-letter.labB { color: var(--tdl-coral); }
+  .lab-unit:hover { transform: translateX(14px); }
+  @keyframes crossPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.055); } }
+  .cross-pulse { transform-origin: center; animation: crossPulse 4.2s ease-in-out infinite; }
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column;">
+
+  <nav style="position:relative;z-index:20;height:72px;background:#0b0b0b;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,48px);">
+    <a href="#" onClick="{{ goHome }}" style="display:inline-flex;align-items:center;" aria-label="The Design Lab — Home"><img src="assets/logo-white.svg" alt="the design lab" style="height:26px;display:block;"></a>
+    <div class="nav-group" style="display:flex;align-items:center;gap:clamp(18px,3vw,40px);font-size:15px;font-weight:600;letter-spacing:0.01em;">
+      <a href="#" class="{{ navVideosCls }}" onClick="{{ goVideos }}">Videos</a>
+      <a href="#" class="{{ navGraphicsCls }}" onClick="{{ goGraphics }}">Graphics</a>
+      <a href="#" class="{{ navContactCls }}" onClick="{{ goContact }}">Contact</a>
+    </div>
+  </nav>
+
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <div onMouseMove="{{ onHeroMove }}" style="position:relative;overflow:clip;">
+
+    <!-- HERO -->
+    <section class="hero-sec" style="position:relative;overflow:hidden;min-height:86vh;display:flex;align-items:center;justify-content:center;background:#0b0b0b;">
+      <div ref="{{ heroLayer }}" style="position:absolute;inset:0;z-index:1;"></div>
+      <div data-reveal="" style="position:relative;z-index:3;pointer-events:none;text-align:center;max-width:920px;padding:40px 24px;">
+        <h1 class="hero-h1" style="margin:0;color:#fff;font-weight:800;letter-spacing:-0.03em;line-height:1.08;font-size:clamp(30px,5vw,64px);">
+          <span class="hero-row" style="display:flex;align-items:baseline;justify-content:center;gap:0.3em;white-space:nowrap;">
+            
+            <span>Create the</span><span class="hero-slot" style="position:relative;display:inline-block;border-bottom:5px solid #fff;padding-bottom:0.08em;text-align:center;"><span class="hero-sizer" aria-hidden="true">exposure</span><span style="position:absolute;left:50%;top:0;transform:translateX(-50%);">{{ wordEl }}</span></span>
+          </span>
+          <span style="display:block;"><span class="hero-br">your mission </span>deserves.</span>
+        </h1>
+        <p style="margin:22px auto 0;color:rgba(255,255,255,0.74);font-size:clamp(17px,2.2vw,22px);line-height:1.5;max-width:620px;"><span class="hero-br">Original video and design </span>that moves people to act.</p>
+        <div style="margin-top:38px;pointer-events:auto;display:inline-flex;">
+          <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Button" variant="primary" size="lg" onClick="{{ goContact }}" hint-size="auto,54px">Let's work together<img src="assets/mark-white.svg" alt="" aria-hidden="true" style="width:16px;height:auto;display:inline-block;"></x-import>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM + SOLUTION: background stays black, body text white -->
+    <div style="background:#000;">
+
+      <!-- CLIENT LOGOS BAND (always solid black, colored strips top & bottom) -->
+      <section style="background:#000;padding:0;">
+        <div style="height:4px;background:linear-gradient(90deg,var(--tdl-teal),var(--tdl-yellow),var(--tdl-coral));"></div>
+        <div style="padding:52px 0;">
+          <p style="text-align:center;margin:0 0 30px;font-size:12px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.55);">Trusted by</p>
+          <div class="marquee-wrap">
+            <div class="marquee-track">
+              <sc-for list="{{ logosLoop }}" as="lg" hint-placeholder-count="10">
+                <img src="{{ lg.src }}" alt="{{ lg.name }}" style="flex:none;height:38px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.88;">
+              </sc-for>
+            </div>
+          </div>
+        </div>
+        <div style="height:4px;background:linear-gradient(90deg,var(--tdl-coral),var(--tdl-yellow),var(--tdl-teal));"></div>
+      </section>
+
+      <!-- PROBLEM -->
+      <section style="max-width:900px;margin:0 auto;padding:clamp(80px,11vw,132px) 24px 0;">
+        <h2 ref="{{ hlHead }}" style="margin:0 0 44px;font-weight:800;letter-spacing:-0.02em;line-height:1.12;font-size:clamp(34px,5vw,58px);">
+          <span class="hl-line">You get one</span>
+          <span class="hl-line" style="margin-bottom:0.34em;">first impression</span>
+          <span class="hl-line">Make it land.</span>
+        </h2>
+        <div style="display:flex;flex-direction:column;gap:20px;font-size:clamp(18px,2.2vw,22px);line-height:1.6;max-width:720px;">
+          <p data-reveal="" style="margin:0;color:#fff;">You know the value of your mission. Not everyone does.</p>
+          <p data-reveal="" style="margin:0;color:#fff;transition-delay:.1s;">They see one thing, and in a second they decide whether to care or not.</p>
+          <p data-reveal="" style="margin:0;color:#fff;font-weight:700;transition-delay:.2s;">Our job is to make sure they don't scroll past.</p>
+        </div>
+      </section>
+
+      <!-- SOLUTION -->
+      <section style="max-width:900px;margin:0 auto;padding:clamp(48px,7vw,80px) 24px clamp(80px,11vw,132px);">
+        <div style="display:flex;flex-direction:column;gap:20px;font-size:clamp(18px,2.2vw,22px);line-height:1.6;max-width:720px;">
+          <p data-reveal="" style="margin:0;color:#fff;">We create original video and design that's impossible to ignore.</p>
+          <p data-reveal="" style="margin:0;color:#fff;transition-delay:.1s;">Every piece is built with its own story and concept, made to be remembered.</p>
+          <p data-reveal="" style="margin:0;color:#fff;transition-delay:.2s;">Through visual storytelling, your cause is told in a way that makes people feel it — so they don't just see your mission, they act on it.</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- PROCESS -->
+    <section style="background:var(--tdl-fog);padding:clamp(72px,10vw,120px) 24px;">
+      <div style="max-width:1080px;margin:0 auto;text-align:center;">
+        <h2 data-reveal="" class="crosshead" style="margin:0 0 14px;font-weight:800;letter-spacing:-0.02em;font-size:clamp(28px,4vw,46px);color:var(--tdl-ink);">The Design <span style="color:var(--tdl-teal);">L</span><span style="color:var(--tdl-yellow);">A</span><span style="color:var(--tdl-coral);">B</span> process</h2>
+        <p data-reveal="" style="transition-delay:.06s;margin:0 auto clamp(48px,7vw,72px);max-width:640px;font-size:clamp(15px,1.7vw,18px);line-height:1.55;color:var(--tdl-muted);">Our signature process of turning ideas into results.</p>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:clamp(28px,4vw,44px);">
+          <div data-reveal="" class="lab-unit" style="width:min(100%,620px);text-align:left;display:grid;grid-template-columns:clamp(84px,12vw,150px) 1fr;gap:clamp(20px,4vw,44px);align-items:start;">
+            <span aria-hidden="true" class="lab-letter labL" style="font-size:clamp(72px,12vw,132px);font-weight:900;line-height:0.78;letter-spacing:-0.03em;">L</span>
+            <div>
+              <h3 style="margin:0 0 12px;font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-0.01em;color:var(--tdl-ink);">Listen</h3>
+              <p style="margin:0;max-width:640px;font-size:clamp(16px,2vw,19px);line-height:1.6;color:var(--tdl-text);">We ask the right questions to learn your mission, your audience, and your goals.</p>
+            </div>
+          </div>
+          <div data-reveal="" class="lab-unit" style="transition-delay:.12s;width:min(100%,620px);text-align:left;display:grid;grid-template-columns:clamp(84px,12vw,150px) 1fr;gap:clamp(20px,4vw,44px);align-items:start;">
+            <span aria-hidden="true" class="lab-letter labA" style="font-size:clamp(72px,12vw,132px);font-weight:900;line-height:0.78;letter-spacing:-0.03em;">A</span>
+            <div>
+              <h3 style="margin:0 0 12px;font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-0.01em;color:var(--tdl-ink);">Action Plan</h3>
+              <p style="margin:0;max-width:640px;font-size:clamp(16px,2vw,19px);line-height:1.6;color:var(--tdl-text);">We map out the concept and creative direction, so you know exactly where we're going before anything is made.</p>
+            </div>
+          </div>
+          <div data-reveal="" class="lab-unit" style="transition-delay:.24s;width:min(100%,620px);text-align:left;display:grid;grid-template-columns:clamp(84px,12vw,150px) 1fr;gap:clamp(20px,4vw,44px);align-items:start;">
+            <span aria-hidden="true" class="lab-letter labB" style="font-size:clamp(72px,12vw,132px);font-weight:900;line-height:0.78;letter-spacing:-0.03em;">B</span>
+            <div>
+              <h3 style="margin:0 0 12px;font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-0.01em;color:var(--tdl-ink);">Bring to Life</h3>
+              <p style="margin:0;max-width:640px;font-size:clamp(16px,2vw,19px);line-height:1.6;color:var(--tdl-text);">Every detail is brought to life and ready to make an impact.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SINGLE THREE-COLOR SPLASH -->
+    <div style="background:#fff;display:flex;justify-content:center;padding:clamp(52px,8vw,88px) 24px 0;">
+      <img src="assets/mark.svg" alt="" aria-hidden="true" style="width:clamp(56px,7vw,88px);height:auto;display:block;">
+    </div>
+
+    <!-- COMMITMENT -->
+    <section style="background:#fff;padding:clamp(48px,7vw,80px) 24px clamp(80px,11vw,128px);margin-top:-1px;">
+      <div style="max-width:1080px;margin:0 auto;">
+        <h2 data-reveal="" class="crosshead" style="text-align:center;margin:0 0 clamp(40px,6vw,64px);font-weight:800;letter-spacing:-0.02em;font-size:clamp(28px,4vw,46px);color:var(--tdl-ink);">Our Commitment</h2>
+        <div style="display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;gap:clamp(14px,2vw,26px);">
+          <div class="promise" data-reveal="" style="flex:1 1 220px;height:clamp(230px,26vw,260px);border-color:var(--tdl-coral);">
+            <div class="promise-back">
+              <p style="margin:0;font-size:clamp(16px,1.9vw,20px);line-height:1.5;font-weight:500;color:var(--tdl-ink);">You're part of the process, start to finish.</p>
+            </div>
+            <div class="promise-front">
+              <span style="font-size:clamp(23px,2.6vw,30px);font-weight:800;letter-spacing:-0.01em;color:var(--tdl-ink);">Connection</span>
+              <svg class="promise-arrow" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--tdl-coral)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg>
+            </div>
+          </div>
+          <div class="promise" data-reveal="" style="flex:1 1 220px;transition-delay:.12s;height:clamp(230px,26vw,260px);border-color:var(--tdl-teal);">
+            <div class="promise-back">
+              <p style="margin:0;font-size:clamp(16px,1.9vw,20px);line-height:1.5;font-weight:500;color:var(--tdl-ink);">Your video and design come from one place, so everything works together seamlessly.</p>
+            </div>
+            <div class="promise-front">
+              <span style="font-size:clamp(23px,2.6vw,30px);font-weight:800;letter-spacing:-0.01em;color:var(--tdl-ink);">Consistency</span>
+              <svg class="promise-arrow" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--tdl-teal)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg>
+            </div>
+          </div>
+          <div class="promise" data-reveal="" style="flex:1 1 220px;transition-delay:.24s;height:clamp(230px,26vw,260px);border-color:var(--tdl-yellow);">
+            <div class="promise-back">
+              <p style="margin:0;font-size:clamp(16px,1.9vw,20px);line-height:1.5;font-weight:500;color:var(--tdl-ink);">Every project gets its own creative concept and feel.</p>
+            </div>
+            <div class="promise-front">
+              <span style="font-size:clamp(23px,2.6vw,30px);font-weight:800;letter-spacing:-0.01em;color:var(--tdl-ink);">Creativity</span>
+              <svg class="promise-arrow" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--tdl-yellow)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section data-reveal="" style="background:var(--tdl-ink);color:#fff;padding:clamp(72px,10vw,128px) 24px;">
+      <div style="max-width:900px;margin:0 auto;text-align:center;">
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="var(--tdl-coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 28px;display:block;"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></svg>
+        <blockquote style="margin:0;font-size:clamp(20px,2.7vw,30px);line-height:1.5;font-weight:500;letter-spacing:-0.01em;height:clamp(300px,40vw,360px);display:flex;align-items:center;justify-content:center;">{{ currentQuote }}</blockquote>
+        <p style="margin:28px 0 0;font-size:15px;font-weight:600;letter-spacing:0.03em;color:rgba(255,255,255,0.62);">{{ currentWho }}</p>
+        <div style="display:flex;gap:14px;justify-content:center;margin-top:40px;">
+          <button type="button" onClick="{{ tPrev }}" aria-label="Previous testimonial" style="width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);background:transparent;color:#fff;display:inline-flex;align-items:center;justify-content:center;transition:all .2s var(--ease-out);" style-hover="border-color:var(--tdl-coral);background:var(--tdl-coral);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="m12 19-7-7 7-7"></path></svg></button>
+          <button type="button" onClick="{{ tNext }}" aria-label="Next testimonial" style="width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);background:transparent;color:#fff;display:inline-flex;align-items:center;justify-content:center;transition:all .2s var(--ease-out);" style-hover="border-color:var(--tdl-coral);background:var(--tdl-coral);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section data-reveal="" data-confetti="1" ref="{{ ctaSection }}" style="position:relative;overflow:hidden;background:#fff;padding:clamp(88px,12vw,150px) 24px;text-align:center;">
+      <canvas ref="{{ confettiCanvas }}" aria-hidden="true" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:3;"></canvas>
+      <h2 class="crosshead" style="position:relative;z-index:1;margin:0 auto;max-width:820px;font-weight:800;letter-spacing:-0.025em;line-height:1.08;font-size:clamp(30px,5vw,58px);color:var(--tdl-ink);text-wrap:balance;">You have a mission.<br>We make people feel it.</h2>
+      <div style="position:relative;z-index:1;margin-top:40px;display:inline-flex;">
+        <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Button" variant="primary" size="lg" onClick="{{ goContact }}" hint-size="auto,54px">Let's create the response<img src="assets/mark-white.svg" alt="" aria-hidden="true" style="width:16px;height:auto;display:inline-block;"></x-import>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
+  <!-- ================= VIDEOS ================= -->
+  <sc-if value="{{ isVideos }}" hint-placeholder-val="{{ false }}">
+  <div style="background:#fff;">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,96px) 24px clamp(72px,10vw,120px);">
+      <div data-reveal="" style="text-align:center;max-width:900px;margin:0 auto;">
+        <a href="#" class="cross-pulse" onClick="{{ goGraphics }}" style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--tdl-muted);margin-bottom:22px;">Need graphics too? <img src="assets/mark-coral.svg" alt="" aria-hidden="true" style="width:14px;height:auto;display:inline-block;"></a>
+        <h1 style="margin:0;font-weight:800;letter-spacing:-0.03em;line-height:1.05;font-size:clamp(32px,5.2vw,60px);color:var(--tdl-ink);text-wrap:balance;">Every <span style="color:var(--tdl-coral);">video</span> tells a story worth <span style="color:var(--tdl-coral);">watching</span>.</h1>
+      </div>
+      <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:clamp(36px,5vw,56px) 0 clamp(32px,4vw,48px);">
+        <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Button" variant="{{ vAll }}" size="sm" onClick="{{ goVidAll }}" hint-size="70px,36px">All</x-import>
+        <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Button" variant="{{ vCorp }}" size="sm" onClick="{{ goVidCorp }}" hint-size="110px,36px">Corporate</x-import>
+        <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Button" variant="{{ vNp }}" size="sm" onClick="{{ goVidNp }}" hint-size="110px,36px">Non Profit</x-import>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;">
+        <sc-for list="{{ videos }}" as="v" hint-placeholder-count="9">
+          <div class="video-card" onClick="{{ v.onClick }}" style="cursor:pointer;">
+            <div class="video-frame" style="position:relative;aspect-ratio:16/9;border-radius:var(--radius-lg);overflow:hidden;background:#111;">
+              <div class="video-inner" style="position:absolute;inset:0;background:linear-gradient(135deg,{{ v.c1 }},{{ v.c2 }});">
+                <sc-if value="{{ v.hasPoster }}" hint-placeholder-val="{{ false }}"><img src="{{ v.poster }}" alt="{{ v.t }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></sc-if>
+              </div>
+              <sc-if value="{{ v.noPoster }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;top:12px;left:12px;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.55);background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.18);padding:4px 9px;border-radius:100px;">Preview frame</div></sc-if>
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,0.92);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,0.3);"><svg width="24" height="24" viewBox="0 0 24 24" fill="var(--tdl-ink)" stroke="none" style="margin-left:3px;"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></div>
+              </div>
+              <div class="video-overlay" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.15),rgba(0,0,0,0.72));display:flex;flex-direction:column;justify-content:flex-end;padding:18px;">
+                <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;">
+                  <span style="color:#fff;font-weight:700;font-size:17px;letter-spacing:-0.01em;">{{ v.t }}</span>
+                  <span style="flex:none;display:inline-flex;align-items:center;gap:7px;background:var(--tdl-coral);color:#fff;font-weight:600;font-size:12.5px;padding:8px 15px;border-radius:100px;white-space:nowrap;">Watch video<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ================= GRAPHICS ================= -->
+  <sc-if value="{{ isGraphics }}" hint-placeholder-val="{{ false }}">
+  <div style="background:#fff;">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,96px) 24px clamp(72px,10vw,120px);">
+      <div data-reveal="" style="text-align:center;max-width:900px;margin:0 auto;">
+        <a href="#" class="cross-pulse" onClick="{{ goVideos }}" style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--tdl-muted);margin-bottom:22px;">Need a video too? <img src="assets/mark-coral.svg" alt="" aria-hidden="true" style="width:14px;height:auto;display:inline-block;"></a>
+        <h1 style="margin:0;font-weight:800;letter-spacing:-0.03em;line-height:1.05;font-size:clamp(32px,5.2vw,60px);color:var(--tdl-ink);text-wrap:balance;">Every <span style="color:var(--tdl-coral);">design</span> tells a story worth <span style="color:var(--tdl-coral);">seeing</span>.</h1>
+      </div>
+      <div data-reveal="" class="gfx-filters" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:clamp(36px,5vw,56px) 0 clamp(32px,4vw,48px);">
+        <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Button" variant="{{ gAll }}" size="sm" onClick="{{ goGfxAll }}" hint-size="60px,36px">All</x-import>
+        <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Button" variant="{{ gAds }}" size="sm" onClick="{{ goGfxAds }}" hint-size="70px,36px">Ads</x-import>
+        <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Button" variant="{{ gBro }}" size="sm" onClick="{{ goGfxBro }}" hint-size="110px,36px">Brochures</x-import>
+        <div class="gfx-break"></div>
+        <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Button" variant="{{ gCam }}" size="sm" onClick="{{ goGfxCam }}" hint-size="120px,36px">Campaigns</x-import>
+        <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Button" variant="{{ gLog }}" size="sm" onClick="{{ goGfxLog }}" hint-size="80px,36px">Logos</x-import>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;">
+        <sc-for list="{{ graphics }}" as="g" hint-placeholder-count="12">
+          <div class="gfx-tile" onClick="{{ g.onClick }}" style="cursor:pointer;position:relative;aspect-ratio:1;border-radius:var(--radius-lg);overflow:hidden;background:var(--tdl-fog);border:1px solid var(--tdl-border);">
+            <img src="{{ g.src }}" alt="{{ g.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ================= CONTACT ================= -->
+  <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+  <div style="background:#fff;">
+    <div style="max-width:760px;margin:0 auto;padding:clamp(56px,8vw,96px) 24px clamp(72px,10vw,120px);">
+      <div data-reveal="">
+        <h1 style="margin:0 0 clamp(36px,5vw,56px);font-weight:800;letter-spacing:-0.03em;line-height:1.02;font-size:clamp(40px,6vw,72px);color:var(--tdl-ink);">Let's talk.</h1>
+      </div>
+
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-hidden="true" style="display:none">
+        <input type="hidden" name="form-name" value="contact">
+        <input name="bot-field">
+        <input name="firstName"><input name="lastName"><input name="org"><input name="role"><input name="email"><input name="phone">
+        <input name="help"><textarea name="about"></textarea><input name="deadline"><input name="invest"><input name="hear">
+      </form>
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+        <div style="border:1px solid var(--tdl-border);border-radius:var(--radius-xl);padding:clamp(40px,6vw,72px);text-align:center;background:var(--tdl-fog);">
+          <div style="width:64px;height:64px;border-radius:50%;background:var(--tdl-coral);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></div>
+          <p style="margin:0;font-size:clamp(22px,3vw,30px);font-weight:700;letter-spacing:-0.01em;color:var(--tdl-ink);">Thanks! I'll be in touch soon.</p>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+        <div data-reveal="" style="display:flex;flex-direction:column;gap:22px;">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;">
+            <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Input" label="First name" value="{{ form.firstName }}" onChange="{{ f.firstName }}" hint-size="100%,68px"></x-import>
+            <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Input" label="Last name" value="{{ form.lastName }}" onChange="{{ f.lastName }}" hint-size="100%,68px"></x-import>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;">
+            <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Input" label="Organization / business name" value="{{ form.org }}" onChange="{{ f.org }}" hint-size="100%,68px"></x-import>
+            <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Input" label="Your role" value="{{ form.role }}" onChange="{{ f.role }}" hint-size="100%,68px"></x-import>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;">
+            <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Input" label="Email" type="email" value="{{ form.email }}" onChange="{{ f.email }}" hint-size="100%,68px"></x-import>
+            <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Input" label="Phone number" type="tel" value="{{ form.phone }}" onChange="{{ f.phone }}" hint-size="100%,68px"></x-import>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:14px;margin-top:4px;">
+            <span style="font-size:12px;font-weight:600;letter-spacing:0.02em;color:var(--tdl-ink);">What can I help you with?</span>
+            <div style="display:flex;flex-wrap:wrap;gap:22px;">
+              <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Radio" name="help" value="Video" label="Video" checked="{{ helpVideo }}" onChange="{{ onHelp }}" hint-size="auto,24px"></x-import>
+              <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Radio" name="help" value="Graphic Design" label="Graphic Design" checked="{{ helpGraphic }}" onChange="{{ onHelp }}" hint-size="auto,24px"></x-import>
+            </div>
+          </div>
+
+          <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Textarea" label="Tell me a bit about your organization and what you're planning." rows="4" value="{{ form.about }}" onChange="{{ f.about }}" hint-size="100%,130px"></x-import>
+
+          <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Input" label="Do you have a deadline?" placeholder="If so, what is it?" value="{{ form.deadline }}" onChange="{{ f.deadline }}" hint-size="100%,68px"></x-import>
+
+          <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Select" label="What are you looking to invest in this project?" options="{{ investOptions }}" value="{{ form.invest }}" onChange="{{ f.invest }}" hint-size="100%,68px"></x-import>
+
+          <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Input" label="How did you hear about me?" value="{{ form.hear }}" onChange="{{ f.hear }}" hint-size="100%,68px"></x-import>
+
+          <div style="margin-top:12px;">
+            <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Button" variant="primary" size="lg" onClick="{{ onSubmit }}" hint-size="auto,54px">Let's work together<img src="assets/mark-white.svg" alt="" aria-hidden="true" style="width:15px;height:auto;display:inline-block;"></x-import>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- FOOTER -->
+  <footer style="background:var(--tdl-ink);color:#fff;padding:clamp(48px,7vw,80px) clamp(20px,4vw,48px);">
+    <div class="foot-cols" style="max-width:1120px;margin:0 auto;">
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div style="display:inline-flex;">
+          <x-import component-from-global-scope="TheDesignLabDesignSystem_0dc32b.Button" variant="primary" size="md" onClick="{{ goContact }}" hint-size="auto,46px">Let's work together<img src="assets/mark-white.svg" alt="" aria-hidden="true" style="width:15px;height:auto;display:inline-block;"></x-import>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);">Menu</span>
+        <a href="#" class="foot-link" onClick="{{ goHome }}">Home</a>
+        <a href="#" class="foot-link" onClick="{{ goVideos }}">Videos</a>
+        <a href="#" class="foot-link" onClick="{{ goGraphics }}">Graphics</a>
+        <a href="#" class="foot-link" onClick="{{ goContact }}">Contact</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);">Contact</span>
+        <a href="mailto:bracha@thedesignlabnj.com" class="foot-link">bracha@thedesignlabnj.com</a>
+        <a href="tel:7328061212" class="foot-link">732.806.1212</a>
+      </div>
+    </footer></div>
+  
+
+  <!-- LIGHTBOX -->
+  <sc-if value="{{ lightbox }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeLightbox }}" style="position:fixed;inset:0;z-index:100;background:rgba(10,10,10,0.9);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:32px;">
+      <button type="button" onClick="{{ closeLightbox }}" aria-label="Close" style="position:absolute;top:22px;right:24px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);background:transparent;color:#fff;display:inline-flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+      {{ lightboxImg }}
+      <sc-if value="{{ lightboxHasEmbed }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ stopClick }}" style="width:min(92vw,1100px);aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;">
+          <iframe src="{{ lightboxEmbed }}" title="{{ lightboxTitle }}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" style="width:100%;height:100%;border:0;display:block;"></iframe>
+        </div>
+      </sc-if>
+      <sc-if value="{{ lightboxNoEmbed }}" hint-placeholder-val="{{ false }}">
+        <div style="width:min(92vw,960px);aspect-ratio:16/9;background:#0a0a0a;border:1px solid rgba(255,255,255,0.14);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;">
+          <div style="width:76px;height:76px;border-radius:50%;background:var(--tdl-coral);display:flex;align-items:center;justify-content:center;"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" stroke="none" style="margin-left:4px;"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></div>
+          <p style="margin:0;color:#fff;font-weight:700;font-size:20px;">{{ lightboxTitle }}</p>
+          <p style="margin:0;color:rgba(255,255,255,0.5);font-size:13px;letter-spacing:0.14em;text-transform:uppercase;">Video player — placeholder</p>
+        </div>
+      </sc-if>
+    </div>
+  </sc-if>
+
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  heroLayer = React.createRef();
+  hlHead = React.createRef();
+  ctaSection = React.createRef();
+  confettiCanvas = React.createRef();
+  words = ['response', 'impact', 'revenue', 'reaction', 'exposure'];
+  wordColors = ['var(--tdl-teal)', 'var(--tdl-yellow)', 'var(--tdl-coral)'];
+  state = {
+    page: 'home',
+    gfxCat: 'ALL',
+    vidCat: 'ALL',
+    tIndex: 0,
+    wordIndex: 0,
+    submitted: false,
+    lightbox: null,
+    form: { firstName:'', lastName:'', org:'', role:'', email:'', phone:'', help:'', about:'', deadline:'', invest:'', hear:'' },
+  };
+
+  testimonials = [
+    { quote: '"When you hire Bracha and her team, you aren\u2019t simply hiring a designer to do the work for you. She becomes part of your team and cares about the project deeply. Her dedication leads to visually enthralling work along with a great working experience."', who: '\u2014 Nesanel Gantz, Director, Yad Lachim' },
+    { quote: '"The way you took simple, amateur clips and turned them into something warm, polished, and exciting is truly impressive. It\u2019s amazing to see how ordinary moments can be transformed into a video that truly makes you feel the yeshiva."', who: '\u2014 E. Rothschild, Mesivta of Long Beach' },
+    { quote: '"From the original consultation to the detailed scripts and concepts to the constant communication along the way, every part of the project was a blissful experience! Watching the final video was a true reflection of the heart and soul that Bracha put into each detail."', who: '\u2014 Esti Fischer, Director, Camp Tehilla' },
+    { quote: '"The Design Lab was a pleasure to work with from start to finish. Their team quickly understood the scope of our project, provided clear action plans, and guided the process seamlessly. The final result was beautifully designed, thoughtfully executed, and successfully expanded our brand look and feel."', who: '\u2014 J. David, Director of Marketing, Rubberecycle' },
+    { quote: '"Bracha took our vision to the next level, creating a stunning masterpiece that portrayed our business in a classy and informative way. We highly recommend Design Lab!"', who: '\u2014 Roller Shade Design Group' },
+    { quote: '"Working with Bracha was an absolute pleasure \u2014 efficient, creative, and got the job done quickly. I would definitely use her again."', who: '\u2014 R. Thursch, Kol Moshe' },
+  ];
+
+  logos = [
+    { src: 'assets/logos/accurate.png', name: 'Accurate' },
+    { src: 'assets/logos/advance.png', name: 'Advance' },
+    { src: 'assets/logos/cucine.png', name: 'Cucine' },
+    { src: 'assets/logos/kibbutz.png', name: 'Kibbutz' },
+    { src: 'assets/logos/kollel.png', name: 'Kollel Serench' },
+    { src: 'assets/logos/mbm.png', name: 'MBM' },
+    { src: 'assets/logos/mdy.png', name: 'MDY' },
+    { src: 'assets/logos/mesorah.png', name: 'Mesorah' },
+    { src: 'assets/logos/mlb.png', name: 'MLB' },
+    { src: 'assets/logos/tehila.png', name: 'Tehila' },
+    { src: 'assets/logos/tiferes.png', name: 'Tiferes' },
+    { src: 'assets/logos/torahusb.png', name: 'Torah USB' },
+    { src: 'assets/logos/c2.png', name: 'Client 2' },
+    { src: 'assets/logos/c3.png', name: 'Client 3' },
+    { src: 'assets/logos/c6.png', name: 'Client 6' },
+  ];
+
+  videos = [
+    { t: 'Video title 01', cat: 'CORPORATE', c1: '#2a3340', c2: '#0f1418' },
+    { t: 'Video title 02', cat: 'NON PROFIT', c1: '#3a2d2d', c2: '#140f0f' },
+    { t: 'Video title 03', cat: 'CORPORATE', c1: '#20343a', c2: '#0c1416' },
+    { t: 'Video title 04', cat: 'NON PROFIT', c1: '#33303e', c2: '#131118' },
+    { t: 'Video title 05', cat: 'CORPORATE', c1: '#2c3a34', c2: '#0f1512' },
+    { t: 'Video title 06', cat: 'NON PROFIT', c1: '#3d3529', c2: '#16130d' },
+    { t: 'Video title 07', cat: 'CORPORATE', c1: '#293142', c2: '#0e1118' },
+    { t: 'Video title 08', cat: 'NON PROFIT', c1: '#382a34', c2: '#150f13' },
+    { t: 'Video title 09', cat: 'CORPORATE', c1: '#26383a', c2: '#0c1415' },
+  ];
+
+  _load() {
+    const get = (f) => fetch('content/' + f + '.json', { cache: 'no-cache' }).then((r) => r.ok ? r.json() : null).then((j) => (j && j.items) || null).catch(() => null);
+    Promise.all([get('graphics'), get('videos'), get('logos')]).then(([g, v, l]) => {
+      const up = {};
+      if (g) up.gfxData = g.map((it) => ({ src: it.image, alt: it.title || '', cat: it.category, hero: it.show_in_hero !== false }));
+      if (v) up.vidData = v.map((it) => ({ t: it.title, cat: it.category, url: it.video_url || '', poster: it.poster || '' }));
+      if (l) up.logoData = l.filter((it) => it.show !== false && it.image).map((it) => ({ src: it.image, name: it.name }));
+      this.setState(up, () => { const layer = this.heroLayer.current; if (layer && this._heroInit) this._buildGrid(layer); });
+    });
+  }
+  _gfx() { return this.state.gfxData || ((typeof window !== 'undefined' && window.GRAPHICS_ITEMS) ? window.GRAPHICS_ITEMS : []); }
+  _embed(url) {
+    if (!url) return '';
+    let m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{6,})/);
+    if (m) return 'https://www.youtube.com/embed/' + m[1] + '?autoplay=1&rel=0';
+    m = url.match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/(\w+))?/);
+    if (m) return 'https://player.vimeo.com/video/' + m[1] + '?autoplay=1' + (m[2] ? '&h=' + m[2] : '');
+    return '';
+  }
+
+  componentDidMount() {
+    this._load();
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) { en.target.classList.add('in'); this._maybeConfetti(en.target); this.io.unobserve(en.target); }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    this._observe();
+    this._key = (e) => { if (e.key === 'Escape') this.setState({ lightbox: null }); };
+    window.addEventListener('keydown', this._key);
+    this._flipClick = (e) => { const c = e.target.closest && e.target.closest('.promise'); if (c) c.classList.toggle('open'); };
+    document.addEventListener('click', this._flipClick);
+    this._wordTimer = setInterval(() => this.setState((st) => ({ wordIndex: st.wordIndex + 1 })), 2200);
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onScroll);
+    this._ensureHero();
+    requestAnimationFrame(() => this._applyHighlight());
+  }
+  componentDidUpdate() { this._observe(); this._ensureHero(); requestAnimationFrame(() => this._applyHighlight()); }
+  componentWillUnmount() {
+    if (this.io) this.io.disconnect();
+    window.removeEventListener('keydown', this._key);
+    document.removeEventListener('click', this._flipClick);
+    window.removeEventListener('scroll', this._onScroll);
+    window.removeEventListener('resize', this._onScroll);
+    clearInterval(this._wordTimer);
+    this._heroTeardown();
+  }
+  _observe() {
+    if (!this.io) return;
+    requestAnimationFrame(() => {
+      const vh = window.innerHeight || 0;
+      document.querySelectorAll('[data-reveal]:not(.in), .hl-line:not(.in)').forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.top < vh * 0.92 && r.bottom > 0) { el.classList.add('in'); this._maybeConfetti(el); return; }
+        this.io.observe(el);
+      });
+      document.querySelectorAll('.promise:not(.in)').forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.top < vh * 0.92 && r.bottom > 0) { el.classList.add('in'); return; }
+        this.io.observe(el);
+      });
+    });
+  }
+
+  _maybeConfetti(el) {
+    if (!el || !el.hasAttribute || !el.hasAttribute('data-confetti') || this._confettiFired) return;
+    this._confettiFired = true;
+    this._fireConfetti();
+  }
+  _fireConfetti() {
+    const cv = this.confettiCanvas.current, host = this.ctaSection.current;
+    if (!cv || !host) return;
+    const rect = host.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    const W = rect.width, H = rect.height;
+    cv.width = W * dpr; cv.height = H * dpr;
+    const ctx = cv.getContext('2d');
+    ctx.scale(dpr, dpr);
+    const colors = ['#ED5759', '#2AAEB5', '#F5AC22'];
+    const N = 120;
+    const parts = [];
+    for (let i = 0; i < N; i++) {
+      const originX = W * (0.5 + (Math.random() - 0.5) * 0.5);
+      const ang = -Math.PI / 2 + (Math.random() - 0.5) * 1.7;
+      const sp = 7 + Math.random() * 9;
+      parts.push({
+        x: originX, y: 18 + Math.random() * 20,
+        vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp,
+        w: 6 + Math.random() * 6, h: 9 + Math.random() * 8,
+        rot: Math.random() * Math.PI, vr: (Math.random() - 0.5) * 0.3,
+        color: colors[i % colors.length], life: 0
+      });
+    }
+    const grav = 0.26, drag = 0.992, maxLife = 150;
+    const step = () => {
+      ctx.clearRect(0, 0, W, H);
+      let alive = 0;
+      for (const p of parts) {
+        p.life++;
+        if (p.life > maxLife) continue;
+        p.vy += grav; p.vx *= drag; p.vy *= drag;
+        p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+        if (p.y > H + 30) continue;
+        alive++;
+        const fade = Math.max(0, 1 - Math.max(0, p.life - (maxLife - 40)) / 40);
+        ctx.save();
+        ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+        ctx.globalAlpha = fade;
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      }
+      if (alive > 0) { this._confettiRaf = requestAnimationFrame(step); }
+      else { ctx.clearRect(0, 0, W, H); }
+    };
+    step();
+  }
+
+  _hex(h) { h = h.replace('#', ''); return [parseInt(h.substr(0, 2), 16), parseInt(h.substr(2, 2), 16), parseInt(h.substr(4, 2), 16)]; }
+  _mix(a, b, t) {
+    const A = this._hex(a), B = this._hex(b);
+    const r = Math.round(A[0] + (B[0] - A[0]) * t), g = Math.round(A[1] + (B[1] - A[1]) * t), bl = Math.round(A[2] + (B[2] - A[2]) * t);
+    return 'rgb(' + r + ',' + g + ',' + bl + ')';
+  }
+  _onScroll = () => {
+    if (this._raf) return;
+    this._raf = requestAnimationFrame(() => { this._raf = 0; this._applyHighlight(); });
+  };
+  _applyHighlight() {
+    const head = this.hlHead.current;
+    if (!head) return;
+    const vh = window.innerHeight || 1;
+    const r = head.getBoundingClientRect();
+    // progress: 0 when headline enters lower third, 1 once it reaches upper third
+    const start = vh * 0.82, end = vh * 0.34;
+    let p = (start - r.top) / (start - end);
+    p = Math.max(0, Math.min(1, p));
+    const lines = head.querySelectorAll('.hl-line');
+    if (!lines.length) return;
+    // distribute progress across lines by character length, sequentially
+    const lens = Array.from(lines, (l) => (l.textContent || '').length);
+    const total = lens.reduce((a, b) => a + b, 0) || 1;
+    let acc = 0;
+    lines.forEach((l, i) => {
+      const share = lens[i] / total;
+      const f = Math.max(0, Math.min(1, (p - acc) / share));
+      l.style.setProperty('--fill', f.toFixed(3));
+      acc += share;
+    });
+  }
+
+  _ensureHero() {
+    const onHome = this.state.page === 'home';
+    const layer = this.heroLayer.current;
+    if (onHome && layer && !this._heroInit) {
+      this._heroInit = true;
+      this._buildGrid(layer);
+      if (window.ResizeObserver) {
+        this._ro = new ResizeObserver(() => this._buildGrid(layer));
+        this._ro.observe(layer);
+      }
+    } else if (!onHome && this._heroInit) {
+      this._heroTeardown();
+    }
+  }
+  _heroTeardown() {
+    if (this._ro) { this._ro.disconnect(); this._ro = null; }
+    const layer = this.heroLayer.current;
+    if (layer) layer.innerHTML = '';
+    this._heroInit = false;
+  }
+
+  _buildGrid(layer) {
+    const srcs = this._gfx().filter((it) => it.hero !== false).map((it) => it.src).filter(Boolean);
+    for (let s = srcs.length - 1; s > 0; s--) { const j = Math.floor(Math.random() * (s + 1)); [srcs[s], srcs[j]] = [srcs[j], srcs[s]]; }
+    if (!srcs.length) return;
+    const w = layer.clientWidth, h = layer.clientHeight;
+    if (!w || !h) return;
+    const cols = Math.max(4, Math.round(w / 150));
+    const cellW = w / cols;
+    const rows = Math.max(3, Math.ceil(h / cellW));
+    const grid = document.createElement('div');
+    grid.className = 'hero-grid';
+    grid.style.gridTemplateColumns = 'repeat(' + cols + ',1fr)';
+    grid.style.gridTemplateRows = 'repeat(' + rows + ',1fr)';
+    let i = 0;
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const cell = document.createElement('div');
+        cell.className = 'hero-cell';
+        const img = document.createElement('img');
+        img.src = srcs[i % srcs.length]; img.loading = 'lazy'; i++;
+        const cx = (c + 0.5) / cols, cy = (r + 0.5) / rows;
+        const central = cx > 0.18 && cx < 0.82 && cy > 0.26 && cy < 0.74;
+        const maxOp = central ? 0.2 : 0.7;
+        cell.addEventListener('mouseenter', () => { img.style.opacity = maxOp; });
+        cell.addEventListener('mouseleave', () => { img.style.opacity = 0.08; });
+        cell.appendChild(img);
+        grid.appendChild(cell);
+      }
+    }
+    layer.innerHTML = '';
+    layer.appendChild(grid);
+  }
+
+  _dustColors = ['#ed5759', '#2aaeb5', '#f5ac22'];
+  _dustShapes = [
+    { vb: '0 0 72.03 73.44', d: 'M36.11.22c8.38-.57,14.19-.31,21.65,4.27,6.94,4.16,11.83,11,13.57,18.92,3.24,14.65-5.04,27.92-18.97,32.75-9.36,3.24-18.56.67-28.13,2.93-11.05,3.19-12.85,5.4-19.9,14.35-.57-1.49-1.03-3.03-1.49-4.58C-5.54,39.24,4.38,8.86,36.06.27l.05-.05h0Z' },
+    { vb: '0 0 53.35 44.64', d: 'M16.81.06c.46,0,.93,0,1.44-.05,24.06-.82,42.47,34.81,32.19,44.63-2.93-1.59-5.86-3.19-8.79-4.73-10.59-3.14-20.62-.57-30.23-4.73C-7.3,27.06-1.23,5.46,16.82.11v-.05h0Z' },
+    { vb: '0 0 36.83 50.74', d: 'M17.79,0c.87,0,1.75.05,2.67.15,10.49.82,17.58,9.67,16.2,20.05-1.54,11.62-12.7,17.94-21.29,24.58l-4.63,5.96C-1.49,34.04-8.02,6.99,17.79,0Z' },
+  ];
+  _dustSvg(color, shape) {
+    return 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="' + shape.vb + '"><path fill="' + color + '" d="' + shape.d + '"/></svg>');
+  }
+  _dustColorIdx = 0;
+  _spawnDust(sec, x, y) {
+    this._dustColorIdx = (this._dustColorIdx + 1) % this._dustColors.length;
+    const color = this._dustColors[this._dustColorIdx];
+    const shape = this._dustShapes[Math.floor(Math.random() * this._dustShapes.length)];
+    const parts = shape.vb.split(' ');
+    const aspect = parseFloat(parts[2]) / parseFloat(parts[3]);
+    const h = 13 + Math.random() * 10;
+    const w = h * aspect;
+    const p = document.createElement('img');
+    p.src = this._dustSvg(color, shape);
+    p.style.cssText = 'position:absolute;left:' + x + 'px;top:' + y + 'px;width:' + w + 'px;height:' + h + 'px;z-index:2;pointer-events:none;transform:translate(-50%,-50%);will-change:transform,opacity;';
+    sec.appendChild(p);
+    const rec = { x: x, y: y };
+    this._dust.push(rec);
+    const drift = (Math.random() * 26 - 13);
+    const rise = 42 + Math.random() * 58;
+    const rot = (Math.random() * 14 - 7);
+    const anim = p.animate(
+      [
+        { transform: 'translate(-50%,-50%) scale(1) rotate(' + (rot * 0.3).toFixed(1) + 'deg)', opacity: 0.9 },
+        { transform: 'translate(calc(-50% + ' + drift + 'px),calc(-50% - ' + rise + 'px)) scale(0.5) rotate(' + rot.toFixed(1) + 'deg)', opacity: 0 },
+      ],
+      { duration: 1000 + Math.random() * 600, easing: 'ease-out' }
+    );
+    anim.onfinish = () => { p.remove(); const i = this._dust.indexOf(rec); if (i >= 0) this._dust.splice(i, 1); };
+  }
+  _dust = [];
+  onHeroMove = (e) => {
+    const sec = e.currentTarget;
+    const rect = sec.getBoundingClientRect();
+    const x = e.clientX - rect.left, y = e.clientY - rect.top;
+    const MAX = 7;      // a few more on screen at once
+    const GAP = 68;     // minimum spacing so they never overlap
+    if (this._dust.length >= MAX) return;
+    if (this._lastSplash) { const dx = x - this._lastSplash.x, dy = y - this._lastSplash.y; if (dx * dx + dy * dy < GAP * GAP) return; }
+    for (let i = 0; i < this._dust.length; i++) { const dx = this._dust[i].x - x, dy = this._dust[i].y - y; if (dx * dx + dy * dy < GAP * GAP) return; }
+    this._lastSplash = { x: x, y: y };
+    this._spawnDust(sec, x, y);
+  };
+
+  nav(page) { this.setState({ page }); window.scrollTo(0, 0); }
+  linkH(page) { return (e) => { if (e) e.preventDefault(); this.nav(page); }; }
+
+  sendForm() {
+    const f = this.state.form;
+    if (!f.email || !f.firstName) { alert('Please add your first name and email so we can get back to you.'); return; }
+    const body = new URLSearchParams({ 'form-name': 'contact', ...f }).toString();
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body })
+      .catch(() => {})
+      .finally(() => this.setState({ submitted: true }));
+  }
+
+  field(k) { return (e) => { const v = e.target.value; this.setState((s) => ({ form: { ...s.form, [k]: v } })); }; }
+
+  renderVals() {
+    const s = this.state;
+    const allG = this._gfx();
+    const allV = s.vidData || this.videos;
+    const allL = s.logoData || this.logos;
+    const gfx = allG.filter((it) => s.gfxCat === 'ALL' || it.cat === s.gfxCat)
+      .map((it) => ({ ...it, onClick: () => this.setState({ lightbox: { type: 'image', src: it.src, title: it.alt } }) }));
+    const vids = allV.filter((v) => s.vidCat === 'ALL' || v.cat === s.vidCat)
+      .map((v, k) => { const yt = (v.url || '').match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{6,})/); const poster = v.poster || (yt ? 'https://img.youtube.com/vi/' + yt[1] + '/hqdefault.jpg' : ''); return ({ ...v, poster, c1: v.c1 || ['#2a3340', '#3a2d2d', '#20343a'][k % 3], c2: v.c2 || '#0f1418', hasPoster: !!poster, noPoster: !poster, onClick: () => this.setState({ lightbox: { type: 'video', src: this._embed(v.url), title: v.t } }) }); });
+    const t = this.testimonials[s.tIndex] || this.testimonials[0];
+    const lb = s.lightbox;
+    const va = (c) => (s.vidCat === c ? 'secondary' : 'ghost');
+    const ga = (c) => (s.gfxCat === c ? 'secondary' : 'ghost');
+
+    const word = this.words[s.wordIndex % this.words.length];
+    const wc = this.wordColors[s.wordIndex % this.wordColors.length];
+    const wordEl = React.createElement('span', { key: s.wordIndex, style: { display: 'block', whiteSpace: 'nowrap', textAlign: 'center', color: wc, animation: 'tdl-word .5s cubic-bezier(0.22,1,0.36,1) both' } }, word);
+
+    return {
+      navVideosCls: s.page === 'videos' ? 'nav-link active' : 'nav-link', navGraphicsCls: s.page === 'graphics' ? 'nav-link active' : 'nav-link', navContactCls: s.page === 'contact' ? 'nav-link active' : 'nav-link',
+      isHome: s.page === 'home', isVideos: s.page === 'videos', isGraphics: s.page === 'graphics', isContact: s.page === 'contact',
+      goHome: this.linkH('home'), goVideos: this.linkH('videos'), goGraphics: this.linkH('graphics'), goContact: this.linkH('contact'),
+
+      onHeroMove: this.onHeroMove, heroLayer: this.heroLayer, wordEl,
+      hlHead: this.hlHead, ctaSection: this.ctaSection, confettiCanvas: this.confettiCanvas,
+      logosLoop: [...allL, ...allL],
+
+      currentQuote: t.quote, currentWho: t.who,
+      tPrev: () => this.setState((st) => ({ tIndex: (st.tIndex - 1 + this.testimonials.length) % this.testimonials.length })),
+      tNext: () => this.setState((st) => ({ tIndex: (st.tIndex + 1) % this.testimonials.length })),
+
+      vAll: va('ALL'), vCorp: va('CORPORATE'), vNp: va('NON PROFIT'),
+      goVidAll: () => this.setState({ vidCat: 'ALL' }), goVidCorp: () => this.setState({ vidCat: 'CORPORATE' }), goVidNp: () => this.setState({ vidCat: 'NON PROFIT' }),
+      videos: vids,
+
+      gAll: ga('ALL'), gAds: ga('ADS'), gBro: ga('BROCHURES'), gCam: ga('CAMPAIGNS'), gLog: ga('LOGOS'),
+      goGfxAll: () => this.setState({ gfxCat: 'ALL' }), goGfxAds: () => this.setState({ gfxCat: 'ADS' }), goGfxBro: () => this.setState({ gfxCat: 'BROCHURES' }), goGfxCam: () => this.setState({ gfxCat: 'CAMPAIGNS' }), goGfxLog: () => this.setState({ gfxCat: 'LOGOS' }),
+      graphics: gfx,
+
+      form: s.form,
+      f: { firstName: this.field('firstName'), lastName: this.field('lastName'), org: this.field('org'), role: this.field('role'), email: this.field('email'), phone: this.field('phone'), about: this.field('about'), deadline: this.field('deadline'), invest: this.field('invest'), hear: this.field('hear') },
+      helpVideo: s.form.help === 'Video', helpGraphic: s.form.help === 'Graphic Design',
+      onHelp: this.field('help'),
+      investOptions: [ { value: '', label: 'Select an option' }, { value: '$800+', label: '$800+' }, { value: '$1,500+', label: '$1,500+' }, { value: '$3,000+', label: '$3,000+' }, { value: '$5,000+', label: '$5,000+' }, { value: '$8,000+', label: '$8,000+' } ],
+      submitted: s.submitted, notSubmitted: !s.submitted,
+      onSubmit: () => this.sendForm(),
+
+      lightbox: !!lb, lightboxIsVideo: !!lb && lb.type === 'video',
+      lightboxImg: (lb && lb.type === 'image' && lb.src)
+        ? React.createElement('img', { src: lb.src, alt: lb.title || '', style: { maxWidth: 'min(92vw,900px)', maxHeight: '86vh', objectFit: 'contain', borderRadius: '12px', boxShadow: 'var(--shadow-float)' } })
+        : null,
+      lightboxTitle: lb ? lb.title : '',
+      lightboxEmbed: lb && lb.type === 'video' ? lb.src : '',
+      lightboxHasEmbed: !!(lb && lb.type === 'video' && lb.src),
+      lightboxNoEmbed: !!(lb && lb.type === 'video' && !lb.src),
+      stopClick: (e) => e.stopPropagation(),
+      closeLightbox: () => this.setState({ lightbox: null }),
+    };
+  }
+}
+</script>
+</body>
+</html>

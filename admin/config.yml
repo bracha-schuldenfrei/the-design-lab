@@ -1,0 +1,53 @@
+backend:
+  name: github
+  repo: bracha-schuldenfrei/the-design-lab
+  branch: main
+  base_url: https://api.netlify.com
+
+media_folder: media
+public_folder: /media
+
+collections:
+  - name: portfolio
+    label: Portfolio
+    files:
+      - name: graphics
+        label: Graphics
+        file: content/graphics.json
+        fields:
+          - label: Graphics
+            name: items
+            widget: list
+            summary: "{{fields.title}} — {{fields.category}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Category, name: category, widget: select, options: [ADS, BROCHURES, CAMPAIGNS, LOGOS] }
+              - { label: Image, name: image, widget: image }
+              - { label: Show in homepage hero, name: show_in_hero, widget: boolean, default: true }
+
+      - name: videos
+        label: Videos
+        file: content/videos.json
+        fields:
+          - label: Videos
+            name: items
+            widget: list
+            summary: "{{fields.title}} — {{fields.category}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Category, name: category, widget: select, options: [CORPORATE, NON PROFIT] }
+              - { label: "Video link (Vimeo or YouTube)", name: video_url, widget: string, required: false }
+              - { label: Thumbnail image, name: poster, widget: image, required: false }
+
+      - name: logos
+        label: Client logos
+        file: content/logos.json
+        fields:
+          - label: Logos
+            name: items
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Client name, name: name, widget: string }
+              - { label: "Logo (transparent PNG or SVG)", name: image, widget: image }
+              - { label: Show on site, name: show, widget: boolean, default: true }

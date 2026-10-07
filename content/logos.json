@@ -1,0 +1,79 @@
+{
+  "items": [
+    {
+      "name": "Accurate",
+      "image": "assets/logos/accurate.png",
+      "show": true
+    },
+    {
+      "name": "Advance",
+      "image": "assets/logos/advance.png",
+      "show": true
+    },
+    {
+      "name": "Cucine",
+      "image": "assets/logos/cucine.png",
+      "show": true
+    },
+    {
+      "name": "Kibbutz",
+      "image": "assets/logos/kibbutz.png",
+      "show": true
+    },
+    {
+      "name": "Kollel Serench",
+      "image": "assets/logos/kollel.png",
+      "show": true
+    },
+    {
+      "name": "MBM",
+      "image": "assets/logos/mbm.png",
+      "show": true
+    },
+    {
+      "name": "MDY",
+      "image": "assets/logos/mdy.png",
+      "show": true
+    },
+    {
+      "name": "Mesorah",
+      "image": "assets/logos/mesorah.png",
+      "show": true
+    },
+    {
+      "name": "MLB",
+      "image": "assets/logos/mlb.png",
+      "show": true
+    },
+    {
+      "name": "Tehila",
+      "image": "assets/logos/tehila.png",
+      "show": true
+    },
+    {
+      "name": "Tiferes",
+      "image": "assets/logos/tiferes.png",
+      "show": true
+    },
+    {
+      "name": "Torah USB",
+      "image": "assets/logos/torahusb.png",
+      "show": true
+    },
+    {
+      "name": "Client 2",
+      "image": "assets/logos/c2.png",
+      "show": true
+    },
+    {
+      "name": "Client 3",
+      "image": "assets/logos/c3.png",
+      "show": true
+    },
+    {
+      "name": "Client 6",
+      "image": "assets/logos/c6.png",
+      "show": true
+    }
+  ]
+}

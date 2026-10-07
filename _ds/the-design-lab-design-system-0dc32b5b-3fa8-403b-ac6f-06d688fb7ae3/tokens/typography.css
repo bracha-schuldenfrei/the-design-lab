@@ -1,0 +1,34 @@
+:root {
+  /* Families */
+  --font-sans: 'Schibsted Grotesk', system-ui, 'Segoe UI', Arial, Helvetica, sans-serif;
+  --font-wordmark: 'Objective', 'Schibsted Grotesk', system-ui, sans-serif; /* the wordmark typeface */
+
+  /* Weights */
+  --fw-regular: 400; /* @kind font */
+  --fw-medium: 500; /* @kind font */
+  --fw-semibold: 600; /* @kind font */
+  --fw-bold: 700; /* @kind font */
+  --fw-extrabold: 800; /* @kind font */
+  --fw-black: 900; /* @kind font */
+
+  /* Type scale (px) */
+  --fs-display: 64px;
+  --fs-h1: 44px;
+  --fs-h2: 34px;
+  --fs-h3: 24px;
+  --fs-body-lg: 19px;
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --fs-caption: 13px;
+  --fs-label: 12px;
+
+  /* Line heights */
+  --lh-tight: 1.0; /* @kind font */
+  --lh-heading: 1.05; /* @kind font */
+  --lh-body: 1.6; /* @kind font */
+
+  /* Letter spacing */
+  --ls-display: -0.035em; /* @kind font */
+  --ls-heading: -0.02em; /* @kind font */
+  --ls-label: 0.2em; /* @kind font */  /* tracked uppercase labels */
+}

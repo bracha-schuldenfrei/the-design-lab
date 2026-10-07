@@ -496,10 +496,10 @@ class Component extends DCLogic {
   _load() {
     const get = (f) => fetch('content/' + f + '.json', { cache: 'no-cache' }).then((r) => r.ok ? r.json() : null).then((j) => (j && j.items) || null).catch(() => null);
     Promise.all([get('graphics'), get('videos'), get('logos')]).then(([g, v, l]) => {
-      const up = {};
-      if (g) up.gfxData = g.map((it) => ({ src: it.image, alt: it.title || '', cat: it.category, hero: it.show_in_hero !== false }));
-      if (v) up.vidData = v.map((it) => ({ t: it.title, cat: it.category, url: it.video_url || '', poster: it.poster || '' }));
-      if (l) up.logoData = l.filter((it) => it.show !== false && it.image).map((it) => ({ src: it.image, name: it.name }));
+      const up = {}; const rel = (p) => (p && p[0] === '/' && p[1] !== '/') ? p.slice(1) : p;
+      if (g) up.gfxData = g.map((it) => ({ src: rel(it.image), alt: it.title || '', cat: it.category, hero: it.show_in_hero !== false }));
+      if (v) up.vidData = v.map((it) => ({ t: it.title, cat: it.category, url: it.video_url || '', poster: rel(it.poster) || '' }));
+      if (l) up.logoData = l.filter((it) => it.show !== false && it.image).map((it) => ({ src: rel(it.image), name: it.name }));
       this.setState(up, () => { const layer = this.heroLayer.current; if (layer && this._heroInit) this._buildGrid(layer); });
     });
   }
@@ -507,7 +507,7 @@ class Component extends DCLogic {
   _embed(url) {
     if (!url) return '';
     let m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{6,})/);
-    if (m) return 'https://www.youtube.com/embed/' + m[1] + '?autoplay=1&rel=0';
+    if (m) return 'https://www.youtube-nocookie.com/embed/' + m[1] + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
     m = url.match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/(\w+))?/);
     if (m) return 'https://player.vimeo.com/video/' + m[1] + '?autoplay=1' + (m[2] ? '&h=' + m[2] : '');
     return '';

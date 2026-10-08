@@ -1,6 +1,24 @@
 {
   "items": [
     {
+      "title": "Camp Lemala Flyer",
+      "category": "ADS",
+      "image": "/media/graphics/camp-lemala-flyer.webp",
+      "show_in_hero": true
+    },
+    {
+      "title": "Camp Beraisa Flyer",
+      "category": "ADS",
+      "image": "/media/graphics/camp-beraisa-flyer.webp",
+      "show_in_hero": true
+    },
+    {
+      "title": "MBM Flyer",
+      "category": "ADS",
+      "image": "/media/graphics/mbm-flyer.webp",
+      "show_in_hero": true
+    },
+    {
       "title": "Candlewood Mikvah Square",
       "category": "CAMPAIGNS",
       "image": "/media/graphics/candlewood-mikvah-square.webp",

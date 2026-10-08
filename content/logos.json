@@ -66,13 +66,43 @@
       "show": true
     },
     {
-      "name": "Client 3",
-      "image": "assets/logos/c3.png",
+      "name": "Client 6",
+      "image": "assets/logos/c6.png",
       "show": true
     },
     {
-      "name": "Client 6",
-      "image": "assets/logos/c6.png",
+      "name": "Beis Medrash Chazak",
+      "image": "assets/logos/chazak.png",
+      "show": true
+    },
+    {
+      "name": "Lemala",
+      "image": "assets/logos/lemala.png",
+      "show": true
+    },
+    {
+      "name": "Parent Partner",
+      "image": "assets/logos/parentpartner.png",
+      "show": true
+    },
+    {
+      "name": "Machon Matnas Chaim",
+      "image": "assets/logos/matnaschaim.png",
+      "show": true
+    },
+    {
+      "name": "LifePrep",
+      "image": "assets/logos/lifeprep.png",
+      "show": true
+    },
+    {
+      "name": "Yad L'Achim",
+      "image": "assets/logos/yadlachim.png",
+      "show": false
+    },
+    {
+      "name": "Torah To Go",
+      "image": "assets/logos/torahtogo.png",
       "show": true
     }
   ]

@@ -789,7 +789,28 @@ class Component extends DCLogic {
       onHeroMove: this.onHeroMove, heroLayer: this.heroLayer, wordEl,
       hlHead: this.hlHead, ctaSection: this.ctaSection, confettiCanvas: this.confettiCanvas,
       logosLoop: [...allL, ...allL],
-      sizeLogo: (e) => { const im = e.currentTarget; const ar = im.naturalWidth / im.naturalHeight || 1; let h = Math.sqrt(5000 / ar), w = h * ar; if (h > 54) { h = 54; w = h * ar; } if (w > 170) { w = 170; h = w / ar; } im.style.height = Math.round(h) + 'px'; im.style.width = Math.round(w) + 'px'; },
+      sizeLogo: (e) => {
+        const im = e.currentTarget;
+        const fit = (ar) => { let h = Math.sqrt(5000 / ar), w = h * ar; if (h > 54) { h = 54; w = h * ar; } if (w > 170) { w = 170; h = w / ar; } im.style.height = Math.round(h) + 'px'; im.style.width = Math.round(w) + 'px'; };
+        if (im.dataset.trimmed) { fit(im.naturalWidth / im.naturalHeight || 1); return; }
+        im.dataset.trimmed = '1';
+        const cache = (window.__logoTrim = window.__logoTrim || {});
+        const key = im.currentSrc || im.src;
+        if (cache[key]) { im.src = cache[key]; return; }
+        try {
+          let nw = im.naturalWidth || 600, nh = im.naturalHeight || 300;
+          const sc = 800 / Math.max(nw, nh); nw = Math.round(nw * sc); nh = Math.round(nh * sc);
+          const c = document.createElement('canvas'); c.width = nw; c.height = nh;
+          const x = c.getContext('2d'); x.drawImage(im, 0, 0, nw, nh);
+          const d = x.getImageData(0, 0, nw, nh).data;
+          let x0 = nw, y0 = nh, x1 = -1, y1 = -1;
+          for (let y = 0; y < nh; y++) for (let xx = 0; xx < nw; xx++) if (d[(y * nw + xx) * 4 + 3] > 30) { if (xx < x0) x0 = xx; if (xx > x1) x1 = xx; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+          if (x1 < 0) { fit(nw / nh); return; }
+          const o = document.createElement('canvas'); o.width = x1 - x0 + 1; o.height = y1 - y0 + 1;
+          o.getContext('2d').drawImage(c, x0, y0, o.width, o.height, 0, 0, o.width, o.height);
+          cache[key] = o.toDataURL('image/png'); im.src = cache[key];
+        } catch (err) { fit(im.naturalWidth / im.naturalHeight || 1); }
+      },
 
       currentQuote: t.quote, currentWho: t.who,
       tPrev: () => this.setState((st) => ({ tIndex: (st.tIndex - 1 + this.testimonials.length) % this.testimonials.length })),

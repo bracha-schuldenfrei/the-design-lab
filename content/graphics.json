@@ -1,24 +1,6 @@
 {
   "items": [
     {
-      "title": "Camp Lemala Flyer",
-      "category": "ADS",
-      "image": "/media/graphics/camp-lemala-flyer.webp",
-      "show_in_hero": true
-    },
-    {
-      "title": "Camp Beraisa Flyer",
-      "category": "ADS",
-      "image": "/media/graphics/camp-beraisa-flyer.webp",
-      "show_in_hero": true
-    },
-    {
-      "title": "MBM Flyer",
-      "category": "ADS",
-      "image": "/media/graphics/mbm-flyer.webp",
-      "show_in_hero": true
-    },
-    {
       "title": "Candlewood Mikvah Square",
       "category": "CAMPAIGNS",
       "image": "/media/graphics/candlewood-mikvah-square.webp",
@@ -82,6 +64,12 @@
       "title": "CHulin COw ad",
       "category": "ADS",
       "image": "/media/graphics/chulin-cow-ad.webp",
+      "show_in_hero": true
+    },
+    {
+      "title": "MBM Flyer",
+      "category": "ADS",
+      "image": "/media/graphics/mbm-flyer.webp",
       "show_in_hero": true
     },
     {
@@ -196,6 +184,12 @@
       "title": "Dirshu Chabura Brochure",
       "category": "BROCHURES",
       "image": "/media/graphics/dirshu-chabura-brochure.webp",
+      "show_in_hero": true
+    },
+    {
+      "title": "Camp Beraisa Flyer",
+      "category": "ADS",
+      "image": "/media/graphics/camp-beraisa-flyer.webp",
       "show_in_hero": true
     },
     {
@@ -430,6 +424,12 @@
       "title": "MBM 2025",
       "category": "ADS",
       "image": "/media/graphics/mbm-2025.webp",
+      "show_in_hero": true
+    },
+    {
+      "title": "Camp Lemala Flyer",
+      "category": "ADS",
+      "image": "/media/graphics/camp-lemala-flyer.webp",
       "show_in_hero": true
     },
     {

@@ -420,7 +420,7 @@
       {{ lightboxImg }}
       <sc-if value="{{ lightboxHasEmbed }}" hint-placeholder-val="{{ false }}">
         <div onClick="{{ stopClick }}" style="width:min(92vw,1100px);aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;">
-          <iframe src="{{ lightboxEmbed }}" title="{{ lightboxTitle }}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" style="width:100%;height:100%;border:0;display:block;"></iframe>
+          <iframe src="{{ lightboxEmbed }}" title="{{ lightboxTitle }}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen="{{ true }}" style="width:100%;height:100%;border:0;display:block;"></iframe>
         </div>
       </sc-if>
       <sc-if value="{{ lightboxNoEmbed }}" hint-placeholder-val="{{ false }}">

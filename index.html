@@ -282,7 +282,7 @@
           <div class="video-card" onClick="{{ v.onClick }}" style="cursor:pointer;">
             <div class="video-frame" style="position:relative;aspect-ratio:16/9;border-radius:var(--radius-lg);overflow:hidden;background:#111;">
               <div class="video-inner" style="position:absolute;inset:0;background:linear-gradient(135deg,{{ v.c1 }},{{ v.c2 }});">
-                <sc-if value="{{ v.hasPoster }}" hint-placeholder-val="{{ false }}"><img src="{{ v.poster }}" onError="{{ v.onPosterErr }}" alt="{{ v.t }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></sc-if>
+                <sc-if value="{{ v.hasPoster }}" hint-placeholder-val="{{ false }}"><img src="{{ v.poster }}" onError="{{ v.onPosterErr }}" alt="{{ v.t }}" loading="lazy" style="{{ v.imgStyle }}"></sc-if>
               </div>
               <sc-if value="{{ v.noPoster }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;top:12px;left:12px;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.55);background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.18);padding:4px 9px;border-radius:100px;">Preview frame</div></sc-if>
               <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
@@ -419,7 +419,7 @@
       <button type="button" onClick="{{ closeLightbox }}" aria-label="Close" style="position:absolute;top:22px;right:24px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);background:transparent;color:#fff;display:inline-flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
       {{ lightboxImg }}
       <sc-if value="{{ lightboxHasEmbed }}" hint-placeholder-val="{{ false }}">
-        <div onClick="{{ stopClick }}" style="width:min(92vw,1100px);aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;">
+        <div onClick="{{ stopClick }}" style="{{ lightboxFrameStyle }}">
           <iframe src="{{ lightboxEmbed }}" title="{{ lightboxTitle }}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen="{{ true }}" style="width:100%;height:100%;border:0;display:block;"></iframe>
         </div>
       </sc-if>
@@ -499,7 +499,7 @@ class Component extends DCLogic {
     Promise.all([get('graphics'), getVideos(), get('logos')]).then(([g, v, l]) => {
       const up = {}; const rel = (p) => (p && p[0] === '/' && p[1] !== '/') ? p.slice(1) : p;
       if (g) up.gfxData = g.map((it) => ({ src: rel(it.image), alt: it.title || '', cat: it.category, hero: it.show_in_hero !== false }));
-      if (v) up.vidData = v.map((it) => ({ t: it.title, cat: it.category, url: it.video_url || '', poster: rel(it.poster) || '' }));
+      if (v) up.vidData = v.map((it) => ({ t: it.title, cat: it.category, url: it.video_url || '', poster: rel(it.poster) || '', vertical: !!it.vertical, tv: it.thumb_v || '' }));
       if (l) up.logoData = l.filter((it) => it.show !== false && it.image).map((it) => ({ src: rel(it.image), name: it.name }));
       this.setState(up, () => { const layer = this.heroLayer.current; if (layer && this._heroInit) this._buildGrid(layer); });
     });
@@ -772,7 +772,7 @@ class Component extends DCLogic {
     const gfx = allG.filter((it) => s.gfxCat === 'ALL' || it.cat === s.gfxCat)
       .map((it) => ({ ...it, onClick: () => this.setState({ lightbox: { type: 'image', src: it.src, title: it.alt } }) }));
     const vids = allV.filter((v) => s.vidCat === 'ALL' || v.cat === s.vidCat)
-      .map((v, k) => { const yt = (v.url || '').match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{6,})/); const poster = v.poster || (yt ? 'https://i.ytimg.com/vi/' + yt[1] + '/maxresdefault.jpg' : ''); const fb = yt ? 'https://i.ytimg.com/vi/' + yt[1] + '/mqdefault.jpg' : ''; return ({ ...v, poster, onPosterErr: (e) => { const im = e.currentTarget; if (fb && !im.dataset.fb) { im.dataset.fb = '1'; im.src = fb; } }, c1: v.c1 || ['#2a3340', '#3a2d2d', '#20343a'][k % 3], c2: v.c2 || '#0f1418', hasPoster: !!poster, noPoster: !poster, onClick: () => this.setState({ lightbox: { type: 'video', src: this._embed(v.url), title: v.t } }) }); });
+      .map((v, k) => { const yt = (v.url || '').match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{6,})/); const poster = v.poster || (yt ? 'https://i.ytimg.com/vi/' + yt[1] + '/maxresdefault.jpg' + (v.tv ? '?v=' + v.tv : '') : ''); const fb = yt ? 'https://i.ytimg.com/vi/' + yt[1] + '/mqdefault.jpg' + (v.tv ? '?v=' + v.tv : '') : ''; return ({ ...v, poster, onPosterErr: (e) => { const im = e.currentTarget; if (fb && !im.dataset.fb) { im.dataset.fb = '1'; im.src = fb; } }, c1: v.c1 || ['#2a3340', '#3a2d2d', '#20343a'][k % 3], c2: v.c2 || '#0f1418', hasPoster: !!poster, noPoster: !poster, imgStyle: (v.vertical && !v.poster) ? { width: '100%', height: '100%', objectFit: 'cover', display: 'block', transform: 'scale(3.17)', transformOrigin: '50% 42%' } : { width: '100%', height: '100%', objectFit: 'cover', display: 'block' }, onClick: () => this.setState({ lightbox: { type: 'video', src: this._embed(v.url), title: v.t, vertical: !!v.vertical } }) }); });
     const t = this.testimonials[s.tIndex] || this.testimonials[0];
     const lb = s.lightbox;
     const va = (c) => (s.vidCat === c ? 'secondary' : 'ghost');
@@ -840,6 +840,7 @@ class Component extends DCLogic {
       lightboxTitle: lb ? lb.title : '',
       lightboxEmbed: lb && lb.type === 'video' ? lb.src : '',
       lightboxHasEmbed: !!(lb && lb.type === 'video' && lb.src),
+      lightboxFrameStyle: (lb && lb.vertical) ? { height: 'min(88vh, 900px)', maxWidth: '92vw', aspectRatio: '9/16', borderRadius: '14px', overflow: 'hidden', background: '#000' } : { width: 'min(92vw,1100px)', aspectRatio: '16/9', borderRadius: '14px', overflow: 'hidden', background: '#000' },
       lightboxNoEmbed: !!(lb && lb.type === 'video' && !lb.src),
       stopClick: (e) => e.stopPropagation(),
       closeLightbox: () => this.setState({ lightbox: null }),

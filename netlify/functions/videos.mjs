@@ -48,7 +48,23 @@ export default async () => {
       page = d.nextPageToken || '';
     } while (page);
 
-    return json({ items }, 300);
+    // Mark vertical videos (taller than wide) so the site can crop their thumbnails.
+    try {
+      const ids = items.map((it) => ytId(it.video_url));
+      const vert = {}, ver = {};
+      for (let i = 0; i < ids.length; i += 50) {
+        const r = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=player&maxWidth=640&id=${ids.slice(i, i + 50).join(',')}&key=${encodeURIComponent(key)}`);
+        if (!r.ok) continue;
+        for (const v of (await r.json()).items || []) {
+          const p = v.player || {};
+          if (Number(p.embedHeight) > Number(p.embedWidth)) vert[v.id] = true;
+          ver[v.id] = String(v.etag || '').replace(/\W/g, '').slice(-10);
+        }
+      }
+      for (const it of items) { const id = ytId(it.video_url); it.vertical = !!vert[id]; it.thumb_v = ver[id] || ''; }
+    } catch (e) {}
+
+    return json({ items }, 120);
   } catch (e) {
     return json({ items: [], error: String(e) }, 60);
   }
@@ -63,7 +79,7 @@ function json(body, seconds) {
   return new Response(JSON.stringify(body), {
     headers: {
       'content-type': 'application/json',
-      'cache-control': 'public, max-age=60',
+      'cache-control': 'no-cache',
       'netlify-cdn-cache-control': `public, s-maxage=${seconds}, stale-while-revalidate=86400`,
     },
   });

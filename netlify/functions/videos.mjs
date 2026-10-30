@@ -80,7 +80,7 @@ function json(body, seconds) {
     headers: {
       'content-type': 'application/json',
       'cache-control': 'no-cache',
-      'netlify-cdn-cache-control': `public, s-maxage=${seconds}, stale-while-revalidate=86400`,
+      'netlify-cdn-cache-control': `public, s-maxage=${seconds}, stale-while-revalidate=30`,
     },
   });
 }
